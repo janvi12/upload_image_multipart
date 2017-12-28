@@ -102,3 +102,35 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return "Boundary-\(UUID().uuidString)"
     }
 }
+
+
+//With name
+
+/*
+<?php
+error_reporting(0);
+
+if (move_uploaded_file($_FILES['file']['tmp_name'], "image.png"))
+{
+    echo "File uploaded: ".$_FILES["file"]["name"];	
+}
+else
+{
+    echo "No Saved";
+}
+*/
+
+// Without name
+/*
+<?php
+error_reporting(0);
+
+move_uploaded_file($_FILES["image"]["tmp_name"], $_FILES["image"]["name"]);
+ 
+ $result = array();
+ //$result["user"] = $user;
+ $result["message"] = "Success!";
+ //$result["files"] = $_FILES;
+ //$result["post"] = $_POST;
+ echo json_encode($result);
+*/
