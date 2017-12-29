@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Hangover Cafe</title>
+
+  <meta name="description" content="Interactive AngularJS Tutorial" />
+  <meta name="keywords" content="AngularJS, AngularJS Tutorial" />
+  <meta name="author" content="Kent C. Dodds" />
+
+    <style>
+	.angular-google-map {
+			display: block;
+		}
+	</style>
+    
+  <!-- Bring in Bootstrap css so things look nice by default -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"/>
+
+<!-- bring in angular -->
+<!--<script src="node_modules/angular/angular.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+</head>
+<body>
+    <form>
+        <div style="background-color: saddlebrown">
+        <br><br>
+        <span style="font-size: 50px; color: white; font-family: cursive; padding-left: 400Px; vertical-align: middle">Coffee</span>
+        <img src="Coffee-Logo-PNG-Transparent-Image.png" width="150" height="80" style="padding-left: -10px ; vertical-align: middle">
+        <span style="font-size: 50px; color: white; font-family: cursive; vertical-align: middle">House</span>
+        <br>
+        <span style="font-size: 25px; color: black; font-family: cursive; padding-left: 450Px">Have it your way. If your way is fast.</span><br><br>
+        <a href="#/home" style="color: white; padding-left: 100px; font-size: 25px; font-style: italic; font-family: cursive; text-decoration: underline">Home</a>
+        <a href="#/about" style="color: white; padding-left: 100px; font-size: 25px; font-style: italic; font-family: cursive; text-decoration: underline">About</a>
+        <a href="#/menu" style="color: white; padding-left: 100px; font-size: 25px; font-style: italic; font-family: cursive; text-decoration: underline">Menu</a>
+        <a href="#/specials" style="color: white; padding-left: 100px; font-size: 25px; font-style: italic; font-family: cursive; text-decoration: underline">Specials</a>
+        <a href="#/events" style="color: white; padding-left: 100px; font-size: 25px; font-style: italic; font-family: cursive; text-decoration: underline">Events</a>
+        </div>
+        <div ng-view>
+        </div>
+        <div style="background-color: saddlebrown">
+            <br><br>
+            <hr style="color: black">
+            <br>
+            <span style="font-size: 20px; color: white; padding-left: 150px">Quick Links</span>
+            <span style="font-size: 20px; color: white; padding-left: 350px">Location Map</span>
+            <span style="font-size: 20px; color: white; padding-left: 300px">Our Business</span>
+            <br>
+            <div>
+                <a href="#/login" style="font-size: 15px; color: white; padding-left: 150px; display: block;">Login</a>
+                <a href="#/signup" style="font-size: 15px; color: white; padding-left: 150px; display: block;">Sign Up</a>
+                <a href="#/contactus" style="font-size: 15px; color: white; padding-left: 150px; display: block;">Contact Us</a>
+            </div>
+        </div>
+    </form>
+    
+    <script src="login.html"></script>
+    <script src="signup.html"></script>
+    <script src="home.html"></script>
+    <script>
+        
+        var app = angular.module('myApp', ['ngRoute']);
+app.config(function($routeProvider) {
+  $routeProvider
+
+  .when('/', {
+    templateUrl : 'home.html'
+  })
+  
+  .when('/login', {
+    templateUrl : 'login.html'
+  })
+    
+  .when('/signup', {
+    templateUrl : 'signup.html'
+  })
+    
+  .when('/home', {
+    templateUrl : 'home.html'
+  })
+    
+  .otherwise({redirectTo: '/'});
+});
+    </script>
+</body>
+</html>
